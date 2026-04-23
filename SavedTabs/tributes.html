@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tributes - Marcos Casillas Foundation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0f172a;
+      --navy-soft: #1e293b;
+      --blue: #102a43;
+      --green: #10b981;
+      --green-dark: #059669;
+      --text: #0f172a;
+      --muted: #475569;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --border: rgba(15, 23, 42, 0.08);
+      --shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+      --radius: 24px;
+      --container: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+
+    .container {
+      width: min(var(--container), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-wrap {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      text-decoration: none;
+      color: #fff;
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: rgba(255,255,255,0.85);
+      font-weight: 500;
+      transition: 0.2s ease;
+    }
+
+    .nav a:hover { color: #fff; }
+
+    .page-hero {
+      background:
+        linear-gradient(rgba(15, 23, 42, 0.72), rgba(15, 23, 42, 0.72)),
+        url('impactsection1.jpg') center/cover no-repeat;
+      color: #fff;
+      padding: 110px 0 90px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #86efac;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      line-height: 1.08;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .page-hero p {
+      max-width: 760px;
+      margin: 20px auto 0;
+      font-size: 1.08rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.88);
+    }
+
+    .section {
+      padding: 88px 0;
+    }
+
+    .section-header {
+      max-width: 720px;
+      margin: 0 auto 44px;
+      text-align: center;
+    }
+
+    .section-header .label {
+      margin: 0 0 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--green-dark);
+    }
+
+    .section-header h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+    }
+
+    .section-header p {
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      margin-bottom: 16px;
+      font-size: 2rem;
+      line-height: 1.15;
+    }
+
+    .intro {
+      color: var(--muted);
+      margin-bottom: 26px;
+    }
+
+    .tribute-story {
+      padding: 22px 0;
+      border-top: 1px solid rgba(15, 23, 42, 0.08);
+    }
+
+    .tribute-story:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .tribute-story h3 {
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+    }
+
+    .tribute-story p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .tribute-grid-large {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .tribute-box-large {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 30px;
+      min-height: 260px;
+      box-shadow: var(--shadow);
+    }
+
+    .tribute-box-large h3 {
+      margin: 0 0 12px;
+      font-size: 1.2rem;
+    }
+
+    .tribute-box-large p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      border-radius: 16px;
+      font: inherit;
+      background: #fff;
+      color: var(--text);
+      outline: none;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.08);
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 170px;
+      padding: 15px 24px;
+      border-radius: 18px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: var(--green);
+      color: #fff;
+      box-shadow: 0 14px 30px rgba(16, 185, 129, 0.28);
+    }
+
+    .btn-primary:hover { background: var(--green-dark); }
+
+    .btn-outline {
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      background: #fff;
+      color: var(--blue);
+    }
+
+    .note {
+      margin-top: 16px;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .success-message {
+      display: none;
+      margin-bottom: 20px;
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #065f46;
+      font-weight: 500;
+    }
+
+    .site-footer {
+      background: #fff;
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      margin-top: 20px;
+    }
+
+    .footer-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 980px) {
+      .content-grid,
+      .tribute-grid-large {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-wrap {
+        padding: 14px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav { gap: 16px; }
+      .section { padding: 72px 0; }
+      .card, .tribute-box-large { padding: 24px; }
+      .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="Fancy.html">Marcos Casillas Foundation</a>
+      <nav class="nav">
+        <a href="Fancy.html">Home</a>
+        <a href="Fancy.html#gallery">Gallery</a>
+        <a href="Fancy.html#help">Help Out</a>
+        <a href="tributes.html">Tributes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Stories • Memories • Legacy</p>
+        <h1>Tributes to Marcos Casillas</h1>
+        <p>
+          This page honors the life, kindness, and impact of Marcos Casillas through stories,
+          reflections, and words shared by family, friends, and community members.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <p class="label">Tributes</p>
+          <h2>Featured Stories</h2>
+          <p>
+            Honoring Marcos through meaningful stories, memories, and reflections shared by those who knew him.
+          </p>
+        </div>
+
+        <div class="tribute-grid-large">
+          <div class="tribute-box-large">
+            <h3>Tribute Story 1</h3>
+            <p>
+              This space can hold a longer tribute, a meaningful memory, or a reflection shared by someone whose life was impacted by Marcos.
+            </p>
+          </div>
+
+          <div class="tribute-box-large">
+            <h3>Tribute Story 2</h3>
+            <p>
+              Use this section to highlight a powerful story that reflects his kindness, generosity, and the legacy he leaves behind.
+            </p>
+          </div>
+
+          <div class="tribute-box-large">
+            <h3>Tribute Story 3</h3>
+            <p>
+              This featured space can be updated with approved submissions or stories you want to showcase prominently.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="container content-grid">
+        <div class="card">
+          <h2>Shared Stories</h2>
+          <p class="intro">
+            Add your stories here over time, or display approved messages submitted through the form.
+          </p>
+
+          <div class="tribute-story">
+            <h3>In Loving Memory</h3>
+            <p>
+              Marcos brought warmth, compassion, and generosity to those around him. His legacy continues
+              through every act of kindness inspired in his name.
+            </p>
+          </div>
+
+          <div class="tribute-story">
+            <h3>A Lasting Impact</h3>
+            <p>
+              Through love, service, and care for others, Marcos inspired a mission that continues to help
+              families and communities in need.
+            </p>
+          </div>
+
+          <div class="tribute-story">
+            <h3>Community and Family</h3>
+            <p>
+              His memory lives on in the stories shared by those who knew him and in the charitable work
+              created to honor his life.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Share a Tribute</h2>
+
+          <div class="success-message" id="successMessage">
+            Thank you for sharing a tribute.
+          </div>
+
+          <form action="https://formsubmit.co/YOUR-EMAIL@example.com" method="POST">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input type="email" id="email" name="email">
+            </div>
+
+            <div class="form-group">
+              <label for="message">Your Tribute</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+
+            <input type="hidden" name="_subject" value="New Tribute Submission - Marcos Casillas Foundation">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="tributes.html?submitted=true">
+
+            <div class="button-row">
+              <button class="btn btn-primary" type="submit">Submit Tribute</button>
+              <a class="btn btn-outline" href="Fancy.html">Home</a>
+            </div>
+          </form>
+
+          <p class="note">
+            Replace <strong>YOUR-EMAIL@example.com</strong> with the email address where you want tribute submissions sent.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <div>© 2026 Marcos Casillas Foundation</div>
+      <div class="footer-links">
+        <a href="Fancy.html">Home</a>
+        <a href="Fancy.html#gallery">Gallery</a>
+        <a href="Fancy.html#help">Help Out</a>
+        <a href="tributes.html">Tributes</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('submitted') === 'true') {
+      document.getElementById('successMessage').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
